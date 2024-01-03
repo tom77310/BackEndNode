@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/allposts.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="/allposts">My blog</a>
+        <a href="/formulairepost">Nouveau Post</a>
+    </nav>
+
+    <h1>Bienvenue sur la page</h1>
+    <h3>Voici les posts</h3>
+
+    <% data.forEach(post => { %>
+        <div>
+            <h3><%#= post.titre %></h3>
+            <h4><%= post.auteur %></h4>
+            <p><%= post.description %></p>
+           
+            
+           
+            <a href="/post/<%= post._id  %>"><button>Edit</button></a>
+
+            <form action="/deletePost/<%= post._id  %>?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Supprimer le post">
+            </form>
+        </div>
+    <% }) %>
+
+
+</body>
+</html>

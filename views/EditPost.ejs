@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/editPost/<%= data._id  %>?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        
+        Titre <input type="text" name="titre" value="<%= data.titre %>" /><br>
+        Auteur <input type="text" name="auteur" value="<%= data.auteur %>" /><br>
+        Description 
+        <textarea name="description" id="" cols="30" rows="10">
+            <%= data.description %>
+        </textarea><br>
+        <input type="submit" value="Envoyer mon post">
+    </form>
+
+    <form action="/deletePost/<%= data._id  %>?_method=DELETE" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Supprimer le post">
+    </form>
+</body>
+</html>
